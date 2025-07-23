@@ -1,0 +1,6 @@
+Memory Configuration
+
+Name    Origin       Length      Used       Free       Attributes
+FLASH   0x08000000   0x00010000  0x00010000  0x00000000 xr
+RAM     0x20000000   0x00008000  0x00008000  0x00000000 rwx
+STACK   0x20007F00   0x00000100  0x00000100  0x00000000 rw
