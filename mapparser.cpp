@@ -60,7 +60,6 @@ bool parseMapFile(const QString &filePath, MemoryStats &stats) {
             }
         }
 
-        // Eğer başka bir bölüme geçtiyse configSection kapatılır
         if (line.startsWith("Linker script") || line.startsWith("Sections")) {
             configSection = false;
         }

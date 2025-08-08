@@ -12,6 +12,9 @@
 #include "clickablelabel.h"
 #include <QTableWidget>
 #include <QPushButton>
+#include <QTextEdit>
+#include <QSpinBox>
+#include "MemoryDetailDialog.h"
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
@@ -19,11 +22,13 @@ class MainWindow : public QMainWindow {
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    bool kontrol =false;
 
 protected:
     void dragEnterEvent(QDragEnterEvent *event) override;
     void dragMoveEvent(QDragMoveEvent *event) override;
     void dropEvent(QDropEvent *event) override;
+
 
 private:
     QVBoxLayout *mainLayout;
@@ -31,16 +36,24 @@ private:
     QTableWidget *memoryTable;
     QPushButton *showChartsButton;
     void setupCharts();
-    QHBoxLayout *chartRow;  // Bu satırı ekleyin
-
+    QHBoxLayout *chartRow;
+    QTextEdit *mapContentView;
+    QSpinBox *greenMinSpin;
+    QSpinBox *yellowMinSpin;
+    QSpinBox *thresholdSpin;
 
     void analyzeFile(const QString &filePath);
     void showPieChart(QtCharts::QChartView *view, const QString &title, double used, double total);
     void initializeMemoryTable();
     void updateMemoryTable();
     void showCharts();
+    void openUserGuide();
+    void openMapFullScreen();
 
-    MemoryStats lastStats; // analiz edilen son veriyi tut
+    QLabel* teiLogoLabel; // TEI logosu için QLabel
+
+
+    MemoryStats lastStats;
     ClickableLabel *dropLabel;
 
     void openFile(const QString &filePath);
